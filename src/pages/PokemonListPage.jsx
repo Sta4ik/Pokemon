@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import PokemonCard from '../components/PokemonCard';
 
-function PokemonList() {
+function PokemonList(){
   const [pokemons, setPokemons] = useState([]); //https://purpleschool.ru/knowledge-base/article/react-js-api пример работы с api
 
   useEffect(() => {
