@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
 
-function PokemonDetailPage(){
+function PokemonDetailPage() {
   const { name } = useParams();
   const [pokemon, setPokemon] = useState(null);
 
@@ -16,23 +16,25 @@ function PokemonDetailPage(){
 
   if (!pokemon) return <p>Загрузка...</p>;
 
-  return(
-    <div className="PokemonDetail">
-        <h1>{pokemon.name}</h1>
-        <img src={pokemon.sprites.front_default} alt={pokemon.name} />
-        <div className="Stats">
+  return (
+    <div className="pokemonDetail">
+      <h1>{pokemon.name}</h1>
+      <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+      <div className="stats">
         <h2>Характеристики:</h2>
-            {pokemon.stats.map(item => {
-                return(
-                    <p>{item.stat.name}: {item.base_stat}</p>
-            )})}
-        </div>
-        <div className="Type">
-            <h2>Типы:</h2>
-            {pokemon.types.map(item => {
-                return(
-                    <p>{item.type.name}</p>
-            )})}
+        {pokemon.stats.map(item => {
+          return (
+            <p>{item.stat.name}: {item.base_stat}</p>
+          )
+        })}
+      </div>
+      <div className="type">
+        <h2>Типы:</h2>
+        {pokemon.types.map(item => {
+          return (
+            <p>{item.type.name}</p>
+          )
+        })}
       </div>
     </div>
   );
