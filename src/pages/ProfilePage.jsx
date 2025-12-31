@@ -32,6 +32,12 @@ function Profile() {
         setIsEditing(false);
     };
 
+    const deletePokemon = (nameToDelete) => {
+        const updatedPokemons = caughtPokemons.filter(item => item.name !== nameToDelete);
+        setCaughtPokemons(updatedPokemons);
+        localStorage.setItem("caughtPokemons", JSON.stringify(updatedPokemons));
+    };
+
     return (
         <div className="container">
             <div className="info">
@@ -66,7 +72,10 @@ function Profile() {
                 <h2>Мои покемоны:</h2>
                 {caughtPokemons.length > 0 ? (
                     caughtPokemons.map(item => (
-                        <PokemonCard name={item.name} image={item.image} />
+                        <div className="pokemonItem">
+                            <PokemonCard name={item.name} image={item.image} />
+                            <button onClick={() => deletePokemon(item.name)}>Удалить</button>
+                        </div>
                     ))
                 ) : (
                     <p>
