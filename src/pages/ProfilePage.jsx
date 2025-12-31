@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useEffect } from "react";
 import UploadAvatars from "../components/UploadAvatasr";
 import PokemonCard from "../components/PokemonCard";
 import { NavLink } from 'react-router-dom';

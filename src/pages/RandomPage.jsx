@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
+import { useEffect } from "react";
 import PokemonCard from "../components/PokemonCard";
 
 function RandomPokemon() {

@@ -1,5 +1,6 @@
-import { useParams } from "react-router-dom"
-import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { useState } from "react";
 
 function PokemonDetailPage() {
   const { name } = useParams();
