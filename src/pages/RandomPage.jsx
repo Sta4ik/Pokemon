@@ -31,7 +31,7 @@ function RandomPokemon() {
     }
 
     return (
-        <div className="RandomPokemon">
+        <div className="randomPokemon">
             <button onClick={getRandomPokemon}>Поймать случайного покемона</button>
             {pokemon && (
                 <div>
@@ -41,7 +41,7 @@ function RandomPokemon() {
             )}
 
             <h2>Мои покемоны:</h2>
-            <div className="CaughtPokemons">
+            <div className="caughtPokemons">
                 {caughtPokemons.map((item) => (
                     <PokemonCard name={item.name} image={item.image} />
                 ))}

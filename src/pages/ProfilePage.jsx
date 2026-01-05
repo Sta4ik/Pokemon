@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import UploadAvatars from "../components/UploadAvatasr";
 import PokemonCard from "../components/PokemonCard";
 import { NavLink } from 'react-router-dom';
+import '../styles/profileStyle.css'
 
 function Profile() {
     const [caughtPokemons, setCaughtPokemons] = useState([]);
@@ -75,7 +76,7 @@ function Profile() {
                     caughtPokemons.map(item => (
                         <div className="pokemonItem">
                             <PokemonCard name={item.name} image={item.image} />
-                            <button onClick={() => deletePokemon(item.name)}>Удалить</button>
+                            <button onClick={() => deletePokemon(item.name)}>Отпустить</button>
                         </div>
                     ))
                 ) : (

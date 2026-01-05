@@ -4,7 +4,7 @@ import {
   HashRouter,
   NavLink
 } from 'react-router-dom'
-import './App.css'
+import './styles/App.css'
 import PokemonList from './pages/PokemonListPage'
 import Profile from './pages/ProfilePage'
 import PokemonDetailPage from './pages/PokemonDetail'
@@ -14,7 +14,7 @@ function App() {
 
   return (
     <HashRouter>
-      <div>
+      <div className='navigation'>
         <NavLink to='/'>Pokemon List</NavLink>
         <NavLink to='/profile'>Profile</NavLink>
         <NavLink to='/random'>Random</NavLink>

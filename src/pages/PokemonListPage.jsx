@@ -34,7 +34,7 @@ function PokemonList() {
   return (
     <div className="pokemonList">
       {pokemons.map(item => (
-        <PokemonCard key={item.name} name={item.name} image={item.image} />
+        <PokemonCard name={item.name} image={item.image} />
       ))}
       <div className="pageChange">
         <button 
