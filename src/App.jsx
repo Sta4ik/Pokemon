@@ -15,6 +15,7 @@ function App() {
   return (
     <HashRouter>
       <div className='navigation'>
+        <img src='icon.png' className='icon'></img>
         <NavLink to='/'>Pokemon List</NavLink>
         <NavLink to='/profile'>Profile</NavLink>
         <NavLink to='/random'>Random</NavLink>

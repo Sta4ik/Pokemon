@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import PokemonCard from "../components/PokemonCard";
+import '../styles/randomStyle.css'
 
 function RandomPokemon() {
     const [pokemon, setPokemon] = useState(null);

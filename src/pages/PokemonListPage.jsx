@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import PokemonCard from '../components/PokemonCard';
+import '../styles/listStyle.css'
 
 function PokemonList() {
   const [pokemons, setPokemons] = useState([]); //https://purpleschool.ru/knowledge-base/article/react-js-api пример работы с api
@@ -32,10 +33,12 @@ function PokemonList() {
   }, [page]);
 
   return (
+    <>
     <div className="pokemonList">
       {pokemons.map(item => (
         <PokemonCard name={item.name} image={item.image} />
       ))}
+      </div>
       <div className="pageChange">
         <button 
           onClick={() => setPage(page => page - 1)}
@@ -50,8 +53,8 @@ function PokemonList() {
         >
           Вперёд
         </button>
-      </div>
     </div>
+    </>
   );
 }
 export default PokemonList;
