@@ -1,60 +1,54 @@
-import { useState } from "react";
-import { useEffect } from "react";
-import PokemonCard from '../components/PokemonCard';
+
+import PokemonList from '../components/PokemonList';
+import CircularProgress from '@mui/material/CircularProgress';
+import Pagination from "../components/Pagination/Pagination";
+import { usePokemons } from '../hooks/pokemons/usePokemons';
 import '../styles/listStyle.css'
 
-function PokemonList() {
-  const [pokemons, setPokemons] = useState([]); //https://purpleschool.ru/knowledge-base/article/react-js-api пример работы с api
-  const [page, setPage] = useState(0);
-  const limit = 50;
+function PokemonListPage() {
+  const {
+    pokemons,
+    page,
+    loading,
+    error,
+    totalPages,
+    nextPage,
+    prevPage,
+    goToPage,
+    isFirstPage,
+    isLastPage,
+    refresh
+  } = usePokemons();
 
-  useEffect(() => {
-    async function fetchPokemons() {
-      const response = await fetch(
-        `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${page * limit}`
-      );
-      const data = await response.json();
-
-      const detailedPokemons = await Promise.all(
-        data.results.map(async (pokemon) => {
-          const res = await fetch(pokemon.url);
-          const details = await res.json();
-          return {
-            name: details.name,
-            image: details.sprites.front_default,
-          };
-        })
-      );
-
-      setPokemons(detailedPokemons);
-    }
-
-    fetchPokemons();
-  }, [page]);
+  if (error) {
+    return (
+      <div>
+        <h1>{error}</h1>
+        <button onClick={refresh}>Перезагрузить</button>
+      </div>
+    )
+  }
 
   return (
-    <>
-    <div className="pokemonList">
-      {pokemons.map(item => (
-        <PokemonCard name={item.name} image={item.image} />
-      ))}
-      </div>
-      <div className="pageChange">
-        <button 
-          onClick={() => setPage(page => page - 1)}
-          disabled={page === 0}
-        >
-          Назад
-        </button>
-        <span>Страница {page + 1}</span>
-        <button 
-          onClick={() => setPage(page => page + 1)}
-          disabled={page === 26}
-        >
-          Вперёд
-        </button>
+    <div className="wrapper">
+      {loading ?
+        <div className="loaderContainer">
+          <CircularProgress size="3rem" />
+        </div> :
+        <PokemonList pokemons={pokemons} />
+      }
+      
+      <Pagination
+        currentPage={page}
+        totalPages={totalPages}
+        loading={loading}
+        onPageChange={goToPage}
+        onPrevPage={prevPage}
+        onNextPage={nextPage}
+        isFirstPage={isFirstPage}
+        isLastPage={isLastPage}
+      />
     </div>
-    </>
   );
 }
-export default PokemonList;
+export default PokemonListPage;
