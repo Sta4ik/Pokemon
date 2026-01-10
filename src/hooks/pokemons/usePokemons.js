@@ -1,12 +1,25 @@
 import { useState, useCallback, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 export function usePokemons() {
+    const [searchParams, setSearchParams] = useSearchParams();
     const [pokemons, setPokemons] = useState([]);
-    const [page, setPage] = useState(0);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const limit = 50;
     const totalPages = 26;
+
+    const pageParam = searchParams.get('page');
+
+    const initialPage = pageParam && !isNaN(pageParam)
+        ? Math.max(0, Math.min(parseInt(pageParam, 10), totalPages - 1))
+        : 0;
+
+    const [page, setPage] = useState(initialPage);
+
+    useEffect(() => {
+        setSearchParams({ page: page.toString() });
+    }, [page, setSearchParams]);
 
     const fetchPokemons = useCallback(async () => {
         try {
