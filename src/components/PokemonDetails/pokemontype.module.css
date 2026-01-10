@@ -1,0 +1,13 @@
+.cardtype {
+    height: 120px;
+    width: 100px;
+}
+
+.typesrow {
+    display: flex;
+    gap:20px;
+}
+
+.typesrow p {
+    font-weight: 600;
+}

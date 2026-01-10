@@ -1,43 +1,57 @@
-import { useParams } from "react-router-dom";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { usePokemonDetail } from "../hooks/pokemons/usePokemonDetail";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import '../styles/detailStyle.css'
+import PokemonHeader from "../components/PokemonDetails/PokemonHeader";
+import PokemonStats from "../components/PokemonDetails/PokemonStats";
+import PokemonType from "../components/PokemonDetails/PokemonType";
+import PokemonSound from "../components/PokemonDetails/PokemonSound";
+import PokemonEvolution from "../components/PokemonEvolution/PokemonEvolution";
 
 function PokemonDetailPage() {
   const { name } = useParams();
-  const [pokemon, setPokemon] = useState(null);
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    async function fetchPokemon() {
-      const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
-      const data = await res.json();
-      setPokemon(data);
-    }
-    fetchPokemon();
-  }, [name]);
+  const { pokemon, loading, error, refresh } = usePokemonDetail(name);
 
-  if (!pokemon) return <p>Загрузка...</p>;
+  const playSound = (url) => {
+    new Audio(url).play();
+  }
+
+  if (loading) return <p>Загрузка...</p>;
+
+  if (error) {
+    return (
+      <div>
+        <h1>Ошибка {error} при получении покемона {name}</h1>
+        <div>
+          <button onClick={() => navigate(-1)}>Назад</button>
+          <button onClick={refresh}>Перезагрузить</button>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="pokemonDetail">
-      <h1>{pokemon.name}</h1>
-      <img src={pokemon.sprites.front_default} alt={pokemon.name} />
-      <div className="stats">
-        <h2>Характеристики:</h2>
-        {pokemon.stats.map(item => {
-          return (
-            <p>{item.stat.name}: {item.base_stat}</p>
-          )
-        })}
+      <div className="backButton">
+        <button onClick={() => navigate(-1)}><ArrowBackIcon /></button>
       </div>
-      <div className="type">
-        <h2>Типы:</h2>
-        {pokemon.types.map(item => {
-          return (
-            <p>{item.type.name}</p>
-          )
-        })}
-      </div>
+      <PokemonHeader
+        name={pokemon.name}
+        img={pokemon.sprites.front_default}
+        id={pokemon.id}
+        height={pokemon.height}
+        weight={pokemon.weight}
+        baseExperience={pokemon.base_experience}
+      />
+    <PokemonStats stats={pokemon.stats} />
+
+    <PokemonType types={pokemon.types} />
+
+    <PokemonSound cries={pokemon.cries} playSound={playSound}/>
+
+    <PokemonEvolution id={pokemon.id} />
     </div>
   );
 }

@@ -56,3 +56,20 @@
 .type p:hover {
   background: #fffae6;
 }
+
+.backButton {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.backButton button {
+  border: 0;
+  background-color: #f9fafc;
+}
+
+.backButton button:hover {
+  background-color: #dbe5fa;
+  color: #2474ca;
+  border-radius: 16px;
+  cursor: pointer;
+}

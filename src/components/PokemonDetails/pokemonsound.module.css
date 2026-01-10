@@ -1,0 +1,22 @@
+.criesbutton {
+    border-radius: 12px;
+    background: none;
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    color: #5172df;
+    border: 1px solid #4a68ce;
+    transition: background 0.3s ease;
+}
+
+.criesbutton:hover {
+    cursor: pointer;
+    background: #4a68ce;
+    color: #fff
+}
+
+.buttonwrapper {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}

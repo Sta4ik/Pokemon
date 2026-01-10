@@ -1,4 +1,4 @@
-
+import Logo from '../assets/pokemonlogo.svg?react';
 import PokemonList from '../components/PokemonList';
 import CircularProgress from '@mui/material/CircularProgress';
 import Pagination from "../components/Pagination/Pagination";
@@ -31,13 +31,14 @@ function PokemonListPage() {
 
   return (
     <div className="wrapper">
+      <Logo />
       {loading ?
         <div className="loaderContainer">
           <CircularProgress size="3rem" />
         </div> :
         <PokemonList pokemons={pokemons} />
       }
-      
+
       <Pagination
         currentPage={page}
         totalPages={totalPages}

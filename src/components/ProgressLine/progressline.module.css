@@ -1,0 +1,38 @@
+.progressContainer {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.progressLabel {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    padding-left: 10px;
+}
+
+.progressLine {
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+    border-radius: 12px;
+    align-items: center;
+    padding: 0;
+    background-color: rgb(240, 239, 239);
+    position: relative;
+    overflow: hidden;
+}
+
+.progressFill {
+    height: 100%;
+    background-color: #4caf50;
+    display: flex;
+    align-items: center;
+}
+
+.progressValue {
+    position: absolute;
+    right: 10px;
+    font-weight: bold;
+    z-index: 1;
+}
