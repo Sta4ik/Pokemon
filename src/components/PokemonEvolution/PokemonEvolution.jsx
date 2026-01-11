@@ -1,5 +1,5 @@
 import { useEvalution } from "../../hooks/evolution/useEvalution";
-import PokemonCard from "../PokemonCard";
+import PokemonCard from "../PokemonCard/PokemonCard";
 import CircularProgress from '@mui/material/CircularProgress';
 import styles from './pokemonevolution.module.css';
 
@@ -32,7 +32,7 @@ function PokemonEvolution({ id }) {
             <div className={styles.evolution}>
                 {pokemons.map(item => {
                     return (
-                        <div className={styles.evolutionwrapper}>
+                        <div className={styles.evolutionwrapper} key={item.name}>
                             <PokemonCard key={item.name} name={item.name} image={item.url} />
                         </div>
                     )

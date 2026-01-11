@@ -27,7 +27,7 @@ function AvatarUploader() {
   };
 
   return (
-    <div className='avatar'>
+    <div>
       <ButtonBase
         component="label"
         sx={{

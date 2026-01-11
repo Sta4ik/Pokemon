@@ -1,9 +1,9 @@
-import Logo from '../assets/pokemonlogo.svg?react';
-import PokemonList from '../components/PokemonList';
+import Logo from '../../assets/pokemonlogo.svg?react';
+import PokemonList from '../../components/PokemonList/PokemonList';
 import CircularProgress from '@mui/material/CircularProgress';
-import Pagination from "../components/Pagination/Pagination";
-import { usePokemons } from '../hooks/pokemons/usePokemons';
-import '../styles/listStyle.css'
+import Pagination from "../../components/Pagination/Pagination";
+import { usePokemons } from '../../hooks/pokemons/usePokemons';
+import styles from './pokemonlistpage.module.css'
 
 function PokemonListPage() {
   const {
@@ -30,10 +30,10 @@ function PokemonListPage() {
   }
 
   return (
-    <div className="wrapper">
+    <div className={styles.wrapper}>
       <Logo />
       {loading ?
-        <div className="loaderContainer">
+        <div className={styles.loaderContainer}>
           <CircularProgress size="3rem" />
         </div> :
         <PokemonList pokemons={pokemons} />

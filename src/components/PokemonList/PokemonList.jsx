@@ -1,9 +1,9 @@
-import PokemonCard from '../components/PokemonCard';
-import '../styles/listStyle.css'
+import PokemonCard from '../PokemonCard/PokemonCard';
+import styles from './pokemonlist.module.css'
 
 function PokemonList({ pokemons }) {
     return (
-        <div className="pokemonList">
+        <div className={styles.pokemonList}>
             {pokemons.map(item => (
                 <PokemonCard name={item.name} image={item.image} key={item.name} />
             ))}

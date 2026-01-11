@@ -1,8 +1,8 @@
-import { useCaughtPokemon } from "../hooks/caughtPokemon/useCaughtPokemon";
-import '../styles/randomStyle.css'
-import CaughtPokemon from "../components/CaughtPokemon/CaughtPokemon";
-import { useRandomPokemon } from "../hooks/pokemons/useRandomPokemon";
-import RandomPokemon from "../components/RandomPokemon/RandomPokemon";
+import { useCaughtPokemon } from "../../hooks/caughtPokemon/useCaughtPokemon";
+import CaughtPokemon from "../../components/CaughtPokemon/CaughtPokemon";
+import { useRandomPokemon } from "../../hooks/pokemons/useRandomPokemon";
+import RandomPokemon from "../../components/RandomPokemon/RandomPokemon";
+import styles from './randompakemonpage.module.css';
 
 function RandomPokemonPage() {
     const {
@@ -27,7 +27,7 @@ function RandomPokemonPage() {
     }
 
     return (
-        <div className="randomPokemon">
+        <div className={styles.randomPokemon}>
             <RandomPokemon 
             remainingAttemps={remainingAttemps}
             add={add}
