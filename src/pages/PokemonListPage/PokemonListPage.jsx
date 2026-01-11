@@ -1,7 +1,7 @@
 import Logo from '../../assets/pokemonlogo.svg?react';
 import CircularProgress from '@mui/material/CircularProgress';
 import { Pagination, PokemonList } from '../../components';
-import { usePokemons } from '../../hooks/pokemons/usePokemons';
+import { usePokemons } from '../../hooks';
 import styles from './pokemonlistpage.module.css'
 
 function PokemonListPage() {

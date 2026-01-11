@@ -1,6 +1,5 @@
 import styles from './profilepage.module.css';
-import { useProfile } from "../../hooks/profile/useProfile";
-import { useCaughtPokemon } from "../../hooks/caughtPokemon/useCaughtPokemon"
+import { useCaughtPokemon, useProfile } from "../../hooks"
 import { ProfileHeader } from "../../components";
 import { CaughtPokemon } from "../../shared/ui";
 

@@ -1,6 +1,5 @@
-import { useCaughtPokemon } from "../../hooks/caughtPokemon/useCaughtPokemon";
-import CaughtPokemon from "../../shared/ui/CaughtPokemon/CaughtPokemon";
-import { useRandomPokemon } from "../../hooks/pokemons/useRandomPokemon";
+import { useCaughtPokemon, useRandomPokemon } from "../../hooks";
+import { CaughtPokemon } from "../../shared/ui";
 import { RandomPokemon } from '../../components';
 import styles from './randompakemonpage.module.css';
 

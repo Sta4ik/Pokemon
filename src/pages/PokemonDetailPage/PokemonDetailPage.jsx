@@ -1,10 +1,9 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { usePokemonDetail } from "../../hooks/pokemons/usePokemonDetail";
+import { usePokemonDetail } from "../../hooks";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { PokemonHeader, PokemonStats, PokemonType, PokemonSound, PokemonEvolution } from '../../components';
 import CircularProgress from '@mui/material/CircularProgress';
 import styles from './pokemondetail.module.css'
-
 
 function PokemonDetailPage() {
   const { name } = useParams();
