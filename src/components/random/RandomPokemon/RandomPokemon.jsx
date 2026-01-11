@@ -1,4 +1,4 @@
-import PokemonCard from "../PokemonCard/PokemonCard";
+import { PokemonCard } from "../../../shared/ui";
 import styles from './randompokemon.module.css'
 
 function RandomPokemon({ add, pokemon, getRandomPokemon, remainingAttemps }) {

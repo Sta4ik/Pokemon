@@ -1,0 +1,9 @@
+export { default as PokemonEvolution } from './pokemonDetails/PokemonEvolution/PokemonEvolution';
+export { default as PokemonHeader } from './pokemonDetails/PokemonHeader/PokemonHeader';
+export { default as PokemonSound } from './pokemonDetails/PokemonSound/PokemonSound';
+export { default as PokemonStats } from './pokemonDetails/PokemonStats/PokemonStats';
+export { default as PokemonType } from './pokemonDetails/PokemonType/PokemonType';
+export { default as Pagination } from './pokemonList/Pagination/Pagination';
+export { default as PokemonList } from './pokemonList/PokemonList/PokemonList';
+export { default as ProfileHeader } from './profile/ProfileHeader/ProfileHeader';
+export { default as RandomPokemon } from './random/RandomPokemon/RandomPokemon';

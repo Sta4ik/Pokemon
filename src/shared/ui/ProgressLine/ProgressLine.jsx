@@ -1,6 +1,6 @@
 import styles from './progressline.module.css';
 
-function ProgressBar ({ label, value, maxValue, color }) {
+function ProgressLine ({ label, value, maxValue, color }) {
     const percentage = Math.min(Math.round((value / maxValue) * 100), 100);
 
     return (
@@ -19,4 +19,4 @@ function ProgressBar ({ label, value, maxValue, color }) {
     );
 };
 
-export default ProgressBar;
+export default ProgressLine;

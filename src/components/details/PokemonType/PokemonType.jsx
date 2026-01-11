@@ -1,4 +1,4 @@
-import { pokemonTypesIconMapper, pokemonTypesMapper } from "../../utils/pokemonTypesMapper";
+import { pokemonTypesIconMapper, pokemonTypesMapper } from "../../shared/utils";
 import styles from './pokemontype.module.css'
 
 function PokemonType({ types }) {

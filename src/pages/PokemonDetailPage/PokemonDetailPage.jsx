@@ -1,11 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { usePokemonDetail } from "../../hooks/pokemons/usePokemonDetail";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import PokemonHeader from "../../components/PokemonDetails/PokemonHeader";
-import PokemonStats from "../../components/PokemonDetails/PokemonStats";
-import PokemonType from "../../components/PokemonDetails/PokemonType";
-import PokemonSound from "../../components/PokemonDetails/PokemonSound";
-import PokemonEvolution from "../../components/PokemonEvolution/PokemonEvolution";
+import { PokemonHeader, PokemonStats, PokemonType, PokemonSound, PokemonEvolution } from '../../components';
 import CircularProgress from '@mui/material/CircularProgress';
 import styles from './pokemondetail.module.css'
 

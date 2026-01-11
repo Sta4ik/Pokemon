@@ -4,7 +4,7 @@ import {
   HashRouter,
 } from 'react-router-dom'
 import './styles/App.css'
-import Header from './components/Header/Header'
+import { Header } from './shared/ui'
 import { PokemonDetailPage, ProfilePage, PokemonListPage, RandomPage, NotFoundPage } from './pages';
 
 function App() {

@@ -1,6 +1,5 @@
-import { pokemonStatsMapper } from "../../utils/pokemonStatsMapper";
-import { pokemonColorMapper } from '../../utils/pokemonStatsMapper'
-import ProgressLine from "../ProgressLine/ProgressLine";
+import { pokemonStatsMapper, pokemonColorMapper } from "../../../shared/utils";
+import { ProgressLine } from "../../../shared/ui";
 import styles from './pokemonstats.module.css'
 
 function PokemonStats({ stats }) {

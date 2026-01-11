@@ -1,4 +1,4 @@
-import UploadAvatars from "../UploadAvatar/UploadAvatar";
+import { UploadAvatars } from "../../../shared/ui";
 import styles from './profileheader.module.css';
 
 function ProfileHeader({ name, description, onChangeDescription, onChangeName, onChangeIsEditable, saveProfile, isEditing }) {

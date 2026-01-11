@@ -1,7 +1,7 @@
 import { useCaughtPokemon } from "../../hooks/caughtPokemon/useCaughtPokemon";
-import CaughtPokemon from "../../components/CaughtPokemon/CaughtPokemon";
+import CaughtPokemon from "../../shared/ui/CaughtPokemon/CaughtPokemon";
 import { useRandomPokemon } from "../../hooks/pokemons/useRandomPokemon";
-import RandomPokemon from "../../components/RandomPokemon/RandomPokemon";
+import { RandomPokemon } from '../../components';
 import styles from './randompakemonpage.module.css';
 
 function RandomPokemonPage() {
@@ -28,11 +28,11 @@ function RandomPokemonPage() {
 
     return (
         <div className={styles.randomPokemon}>
-            <RandomPokemon 
-            remainingAttemps={remainingAttemps}
-            add={add}
-            getRandomPokemon={getRandomPokemon}
-            pokemon={pokemon}
+            <RandomPokemon
+                remainingAttemps={remainingAttemps}
+                add={add}
+                getRandomPokemon={getRandomPokemon}
+                pokemon={pokemon}
             />
             <CaughtPokemon caughtPokemons={caughtPokemons} deletePokemon={deletePokemon} />
         </div>
