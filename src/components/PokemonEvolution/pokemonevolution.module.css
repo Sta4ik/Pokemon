@@ -1,0 +1,10 @@
+.evolutionwrapper {
+    height: 295px;
+    width: 200px;
+}
+
+.evolution {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}

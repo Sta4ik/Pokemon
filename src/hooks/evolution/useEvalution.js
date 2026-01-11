@@ -5,6 +5,25 @@ export function useEvalution(id) {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    async function getChainUrl(id) {
+        try {
+            const res = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
+
+            if (!res.ok) {
+                throw new Error(`Покемон с id "${id}" не найден`);
+            }
+
+            const data = await res.json();
+
+            return {
+                chainUrl: data.evolution_chain.url
+            };
+        }
+        catch (err) {
+            throw err;
+        }
+    }
+
     function extractEvolutionChain(chain) {
         const evolutionArray = [];
 
@@ -48,8 +67,9 @@ export function useEvalution(id) {
         try {
             setLoading(true);
             setError(null);
-
-            const res = await fetch(`https://pokeapi.co/api/v2/evolution-chain/${id}`);
+            const { chainUrl } = await getChainUrl(id);
+            
+            const res = await fetch(chainUrl);
 
             if (!res.ok) {
                 throw new Error(`Покемон с цепочкой эволюции "${id}" не найден`);

@@ -18,11 +18,17 @@ function PokemonEvolution({ id }) {
         )
     }
     return (
-        <div className={styles.evolution}>
-            {pokemons.map(item => {
-                console.log(item)
-                return <PokemonCard key={item.name} name={item.name} image={item.url} />
-            })}
+        <div className={styles.evo}>
+            <h2>Цепочка эволюции:</h2>
+            <div className={styles.evolution}>
+                {pokemons.map(item => {
+                    return (
+                        <div className={styles.evolutionwrapper}>
+                            <PokemonCard key={item.name} name={item.name} image={item.url} />
+                        </div>
+                    )
+                })}
+            </div>
         </div>
     )
 }
