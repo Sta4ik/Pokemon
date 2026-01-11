@@ -27,6 +27,12 @@ export function useCaughtPokemon() {
         localStorage.setItem("caughtPokemons", JSON.stringify(updatedPokemons));
     };
 
+    function addPokemon(newPokemon){
+        const updated = [...caughtPokemons, newPokemon];
+        setCaughtPokemons(updated);
+        localStorage.setItem("caughtPokemons", JSON.stringify(updated));
+    };
+
     useEffect(() => {
         fetchCaughtPokemon();
     }, [fetchCaughtPokemon]);
@@ -37,6 +43,7 @@ export function useCaughtPokemon() {
         error,
         deletePokemon,
         caughtPokemons,
+        addPokemon,
         refresh: fetchCaughtPokemon,
     };
 }

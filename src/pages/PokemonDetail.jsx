@@ -1,12 +1,14 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { usePokemonDetail } from "../hooks/pokemons/usePokemonDetail";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import '../styles/detailStyle.css'
+import styles from './pokemondetail.module.css'
 import PokemonHeader from "../components/PokemonDetails/PokemonHeader";
 import PokemonStats from "../components/PokemonDetails/PokemonStats";
 import PokemonType from "../components/PokemonDetails/PokemonType";
 import PokemonSound from "../components/PokemonDetails/PokemonSound";
 import PokemonEvolution from "../components/PokemonEvolution/PokemonEvolution";
+import CircularProgress from '@mui/material/CircularProgress';
+
 
 function PokemonDetailPage() {
   const { name } = useParams();
@@ -18,7 +20,11 @@ function PokemonDetailPage() {
     new Audio(url).play();
   }
 
-  if (loading) return <p>Загрузка...</p>;
+  if (loading) return (
+    <div className={styles.loadercontainer}>
+      <CircularProgress />
+    </div>
+  );
 
   if (error) {
     return (
@@ -33,8 +39,8 @@ function PokemonDetailPage() {
   }
 
   return (
-    <div className="pokemonDetail">
-      <div className="backButton">
+    <div className={styles.pokemonDetail}>
+      <div className={styles.backButton}>
         <button onClick={() => navigate(-1)}><ArrowBackIcon /></button>
       </div>
       <PokemonHeader
@@ -45,13 +51,13 @@ function PokemonDetailPage() {
         weight={pokemon.weight}
         baseExperience={pokemon.base_experience}
       />
-    <PokemonStats stats={pokemon.stats} />
+      <PokemonStats stats={pokemon.stats} />
 
-    <PokemonType types={pokemon.types} />
+      <PokemonType types={pokemon.types} />
 
-    <PokemonSound cries={pokemon.cries} playSound={playSound}/>
+      <PokemonSound cries={pokemon.cries} playSound={playSound} />
 
-    <PokemonEvolution id={pokemon.id} />
+      <PokemonEvolution id={pokemon.id} />
     </div>
   );
 }

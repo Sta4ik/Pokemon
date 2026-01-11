@@ -2,29 +2,26 @@ import {
   Route,
   Routes,
   HashRouter,
-  NavLink
 } from 'react-router-dom'
 import './styles/App.css'
 import PokemonListPage from './pages/PokemonListPage'
 import Profile from './pages/ProfilePage'
 import PokemonDetailPage from './pages/PokemonDetail'
-import RandomPokemon from './pages/RandomPage'
+import RandomPokemonPage from './pages/RandomPage'
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage'
+import Header from './components/Header/Header'
 
 function App() {
 
   return (
     <HashRouter>
-      <div className='navigation'>
-        <img src='icon.png' className='icon'></img>
-        <NavLink to='/'>Pokemon List</NavLink>
-        <NavLink to='/profile'>Profile</NavLink>
-        <NavLink to='/random'>Random</NavLink>
-      </div>
+      <Header />
       <Routes>
         <Route path='/' element={<PokemonListPage />}></Route>
         <Route path='/profile' element={<Profile />}></Route>
         <Route path='/pokemon/:name' element={<PokemonDetailPage />}></Route>
-        <Route path='/random' element={<RandomPokemon />}></Route>
+        <Route path='/random' element={<RandomPokemonPage />}></Route>
+        <Route path='/*' element={<NotFoundPage />}></Route>
       </Routes>
     </HashRouter>
   )

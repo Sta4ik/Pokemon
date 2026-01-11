@@ -1,0 +1,65 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 93vh;
+    text-align: center;
+    background: #f7f7f7;
+    gap: 24px;
+}
+
+.image {
+    width: 180px;
+    height: auto;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.code {
+    display: flex;
+    font-size: 136px;
+    font-weight: 800;
+    color: #ffcb05;
+    text-shadow: 6px 3px 0 #2a75bb;
+    margin: 0;
+}
+
+.message {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.button {
+    padding: 0.7rem 1.4rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s ease;
+    background: #2a75bb;
+    color: white;
+}
+
+.button:hover {
+    background: #1e5a91;
+}
+
+.buttonSecondary {
+    background: #e0e0e0;
+    color: #333;
+}
+
+.buttonSecondary:hover {
+    background: #c8c8c8;
+}

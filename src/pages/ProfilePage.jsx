@@ -1,8 +1,8 @@
 import styles from './profilepage.module.css';
 import { useProfile } from "../hooks/profile/useProfile";
-import { useCaughtPokemon } from "../hooks/profile/useCaughtPokemon"
+import { useCaughtPokemon } from "../hooks/caughtPokemon/useCaughtPokemon"
 import ProfileHeader from "../components/Profile/ProfileHeader";
-import CaughtPokemon from "../components/Profile/CaughtPokemon";
+import CaughtPokemon from "../components/CaughtPokemon/CaughtPokemon";
 
 function Profile() {
     const {

@@ -1,5 +1,6 @@
 import { useEvalution } from "../../hooks/evolution/useEvalution";
 import PokemonCard from "../PokemonCard";
+import CircularProgress from '@mui/material/CircularProgress';
 import styles from './pokemonevolution.module.css';
 
 function PokemonEvolution({ id }) {
@@ -9,6 +10,7 @@ function PokemonEvolution({ id }) {
         error,
         refresh
     } = useEvalution(id);
+
     if (error) {
         return (
             <div>
@@ -17,6 +19,13 @@ function PokemonEvolution({ id }) {
             </div>
         )
     }
+
+    if (loading) {
+        return (
+            <CircularProgress />
+        )
+    }
+
     return (
         <div className={styles.evo}>
             <h2>Цепочка эволюции:</h2>

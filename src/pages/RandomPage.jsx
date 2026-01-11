@@ -1,53 +1,41 @@
-import { useState } from "react";
-import { useEffect } from "react";
-import PokemonCard from "../components/PokemonCard";
+import { useCaughtPokemon } from "../hooks/caughtPokemon/useCaughtPokemon";
 import '../styles/randomStyle.css'
+import CaughtPokemon from "../components/CaughtPokemon/CaughtPokemon";
+import { useRandomPokemon } from "../hooks/pokemons/useRandomPokemon";
+import RandomPokemon from "../components/RandomPokemon/RandomPokemon";
 
-function RandomPokemon() {
-    const [pokemon, setPokemon] = useState(null);
-    const [caughtPokemons, setCaughtPokemons] = useState([]);
+function RandomPokemonPage() {
+    const {
+        pokemon,
+        getRandomPokemon,
+        reset,
+        remainingAttemps
+    } = useRandomPokemon();
 
-    useEffect(() => {
-        const saved = localStorage.getItem("caughtPokemons");
-        if (saved) {
-            setCaughtPokemons(JSON.parse(saved));
-        }
-    }, []);
+    const {
+        loading,
+        error,
+        deletePokemon,
+        caughtPokemons,
+        refresh,
+        addPokemon
+    } = useCaughtPokemon();
 
-    async function getRandomPokemon() {
-        const id = Math.floor(Math.random() * 898) + 1;
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
-        const data = await response.json();
-
-        const newPokemon = {
-            name: data.name,
-            image: data.sprites.front_default,
-        };
-
-        setPokemon(newPokemon);
-
-        const updated = [...caughtPokemons, newPokemon];
-        setCaughtPokemons(updated);
-        localStorage.setItem("caughtPokemons", JSON.stringify(updated));
+    const add = (pokemon) => {
+        addPokemon(pokemon);
+        reset();
     }
 
     return (
         <div className="randomPokemon">
-            <button onClick={getRandomPokemon}>Поймать случайного покемона</button>
-            {pokemon && (
-                <div>
-                    <h2>Ты поймал:</h2>
-                    <PokemonCard name={pokemon.name} image={pokemon.image} />
-                </div>
-            )}
-
-            <h2>Мои покемоны:</h2>
-            <div className="caughtPokemons">
-                {caughtPokemons.map((item) => (
-                    <PokemonCard name={item.name} image={item.image} />
-                ))}
-            </div>
+            <RandomPokemon 
+            remainingAttemps={remainingAttemps}
+            add={add}
+            getRandomPokemon={getRandomPokemon}
+            pokemon={pokemon}
+            />
+            <CaughtPokemon caughtPokemons={caughtPokemons} deletePokemon={deletePokemon} />
         </div>
     );
 }
-export default RandomPokemon;
+export default RandomPokemonPage;

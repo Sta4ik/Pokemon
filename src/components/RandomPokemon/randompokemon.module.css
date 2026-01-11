@@ -1,0 +1,32 @@
+randomPokemon {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #f9fafc;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.randomPokemon button {
+  padding: 12px 20px;
+  background-color: #2d3e50;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.randomPokemon button:hover {
+  background-color: #ffcc00;
+  color: #2d3e50;
+  transform: translateY(-2px);
+}
+
+.randomPokemon h2 {
+  margin: 20px 0 10px;
+  font-size: 22px;
+  color: #2d3e50;
+}

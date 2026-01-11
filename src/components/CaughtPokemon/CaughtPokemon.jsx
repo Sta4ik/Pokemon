@@ -1,4 +1,4 @@
-import PokemonCard from "../../components/PokemonCard";
+import PokemonCard from "../PokemonCard";
 import { NavLink } from 'react-router-dom';
 import styles from './caughtpokemon.module.css'
 
